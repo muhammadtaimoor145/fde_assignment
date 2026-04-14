@@ -235,10 +235,3 @@ pip install -r requirements.txt
 pip install -e .
 streamlit run .\src\sut_payment\app.py
 ```
-
-## 14) Current Limitations
-
-- Uses mock static data snapshot
-- No live chain sync
-- AI output quality depends on model/API availability
-- Priority scoring is heuristic and can be tuned further with business feedback
