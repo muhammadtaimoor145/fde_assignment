@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sut-payment"
+version = "0.1.0"
+description = "Task 1 data foundation for SUT payment challenge"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2.0",
+  "pydantic>=2.7.0",
+  "streamlit>=1.44.0",
+  "plotly>=5.20.0",
+  "openai>=1.40.0",
+  "python-dotenv>=1.0.1"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
