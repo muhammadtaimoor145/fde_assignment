@@ -4,17 +4,27 @@
 
 Campaign operations and blockchain settlement data exist in separate systems:
 
-- Off-chain campaign operations data (CSV files)
-- On-chain SUT transaction data (mock logs)
+Off-chain campaign operations data (CSV files) — contains campaign setup, expected spend, and operational status
+On-chain SUT transaction data (mock blockchain logs) — contains actual payment execution details
 
-Because of this split, campaigns can appear healthy in operations dashboards while settlement is actually broken (failed tx, pending tx, wallet issues, low balance).  
-The goal of this MVP is to close that visibility gap for operators.
+Because of this separation, the operations team lacks visibility into the true settlement state when payments are processed via blockchain.
 
-This solution focuses on three business questions:
+As a result:
 
-1. How much could each campaign save if it used SUT settlement?
-2. Which campaigns are at risk today because of failed payment, pending settlement, wallet mapping issues, or low balance?
-3. What should operations do next for highest-risk campaigns?
+Campaigns may appear healthy in operations dashboards
+But actual settlement may be incomplete or broken, due to:
+failed transactions
+pending transactions
+missing or incorrect wallet mappings
+insufficient wallet balance
+
+Additionally, operators cannot easily determine:
+
+Whether a payment is fully completed or partially settled
+How much settlement is still pending
+What financial impact (cost or savings) is associated with using SUT.
+
+
 
 ## 2) Scope and Product Decisions
 
@@ -30,6 +40,14 @@ This solution focuses on three business questions:
 - Real-time chain integration / RPC
 - Authentication / production workflow tooling
 - Smart contract deployment
+
+### Solution
+
+This solution focuses on three business questions:
+
+1. How much could each campaign save if it used SUT settlement?
+2. Which campaigns are at risk today because of failed payment, pending settlement, wallet mapping issues, or low balance?
+3. What should operations do next for highest-risk campaigns?
 
 ### Key Product Choice
 
